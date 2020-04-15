@@ -4,8 +4,9 @@
         <meta http-equiv="Content-Type" content="text/html">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#C0B9DD">
+        <meta name="theme-color" content="#66F4B9">
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <script src="https://kit.fontawesome.com/5ebc5ec22d.js" crossorigin="anonymous"></script>
         <script src="js/howler.js"></script>
         <script src="js/sound.js"></script>
         <title>Animales Cruzando</title>
@@ -18,14 +19,23 @@
             </header>
 
             <div class="card" id="card">
-                <section>
+                <section class="section-form">
                     <form class="animalizame-form" id="animalizame-form" action="#">
                         <div class="form-title" id="form-title">Escribe algo</div>
                         <input class="text-to-speech" id="text-to-speech" type="text"/>
-                        <button class="animalizame-button" id="animalizame-button" onclick="animalizame(document.getElementById('text-to-speech').value)"> 😁 </button>
+                        <button class="animalizame-button" id="animalizame-button" onclick="animalizame(document.getElementById('text-to-speech').value)"> 😁 🔊 </button>
                     </form>
 
                     <!-- <button onclick="{A_Sound}">AAAAA</button> -->
+                </section>
+
+                <section class="section-media">
+                    <div class="tooltip">
+                        <a target="noopener_noreferrer" href="https://github.com/SirKawaii/IsabelleSpeech">
+                            <i class="icon fab fa-github fa-2x"></i>
+                        </a>
+                        <span class="tooltiptext">¡Ve el código!</span>
+                    </div>
                 </section>
             </div>
         </div>
