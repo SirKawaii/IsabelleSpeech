@@ -16,11 +16,8 @@
             <p> esto es un texto</p>
             <form action="">
                 <p>Escribe algo</p>
-                <input id="text-to-speech" type="text"/>
-                <button onclick="animalizame(document.getElementById('text-to-speech').value)"> 😁 </button>
+                <input id="text-to-speech" type="text" oninput="VocalizeInput(this)"/>
+                <button onclick="animalizame(document.getElementById('text-to-speech').value) " disabled> 😁 </button>
             </form>
-
-
-        <button onclick="{A_Sound}">asdasd</button>
         </section>
 </html>
