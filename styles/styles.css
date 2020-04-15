@@ -1,0 +1,50 @@
+@import url('https://fonts.googleapis.com/css?family=Comic+Neue|Roboto&display=swap');
+
+html {
+    height: 100%;
+    position: relative;
+}
+body{
+    margin: 0;
+    /* There's an image (with an opacity percentage) you can use as a background, but I don't know if it looks fine, so in the meanwhile I'll just use the color gradient below  ¯\_(ツ)_/¯ */
+    /* background-image: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%,rgba(0,0,0,0.2) 100%), url("../images/ac-background.jpg"); */
+    background: rgb(52,225,251);
+    background: linear-gradient(135deg, rgba(52,225,251,1) 0%, rgba(157,255,90,1) 100%);
+    background-repeat: no-repeat;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+header h1{
+    font-family: 'Comic Neue', cursive;
+    color: white;
+}
+.card{
+    background-color: rgba(0,215,130,0.4);
+    padding: 40px;
+    border-radius: 20px;
+}
+.animalizame-form{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.form-title{
+    font-family: 'Roboto', sans-serif;
+    align-self: flex-start;
+    color: white;
+}
+.text-to-speech{
+    background-color: rgba(255,255,255,0.2);
+    border-radius: 20px;
+    border: 1px solid white;
+    padding: 5px;
+    margin: 10px;
+}
+.animalizame-button{
+    align-self: flex-end;
+}

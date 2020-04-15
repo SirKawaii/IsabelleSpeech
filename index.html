@@ -3,24 +3,30 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html">
         <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="theme-color" content="#C0B9DD">
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <script src="js/howler.js"></script>
         <script src="js/sound.js"></script>
+        <title>Animales Cruzando</title>
     </head>
 
     <body>
-        <header>
-            <h1>Animales Cruzando</h1>
-        </header>
+        <div class="container" id="container">
+            <header>
+                <h1>Animales Cruzando</h1>
+            </header>
 
-        <section>
-            <p> esto es un texto</p>
-            <form action="">
-                <p>Escribe algo</p>
-                <input id="text-to-speech" type="text"/>
-                <button onclick="animalizame(document.getElementById('text-to-speech').value)"> 😁 </button>
-            </form>
+            <div class="card" id="card">
+                <section>
+                    <form class="animalizame-form" id="animalizame-form" action="#">
+                        <div class="form-title" id="form-title">Escribe algo</div>
+                        <input class="text-to-speech" id="text-to-speech" type="text"/>
+                        <button class="animalizame-button" id="animalizame-button" onclick="animalizame(document.getElementById('text-to-speech').value)"> 😁 </button>
+                    </form>
 
-
-        <button onclick="{A_Sound}">asdasd</button>
-        </section>
+                    <!-- <button onclick="{A_Sound}">AAAAA</button> -->
+                </section>
+            </div>
+        </div>
 </html>
