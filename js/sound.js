@@ -34,3 +34,7 @@ function Talk(file){
     sound.play();
 }
 
+const A_Sound = () =>{
+    Talk('a');
+}
+
