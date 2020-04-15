@@ -59,8 +59,7 @@ function animalizame(text){
 function speech(blabla){
     for (let i = 0; i < blabla.length; i++) {
         const letra = blabla[i];
-        if(letra in letters){
-            console.log(letra);
+        if(letters.includes(letra)){
             Vocalize(letra);
         }else{
             Vocalize("e");
