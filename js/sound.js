@@ -1,7 +1,7 @@
 // define the fucking alphabet
-var letters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z").split(',');
+var letters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z,").split(',');
 var alphabet = new Howl({
-    src: ['sounds/abc.mp3'],
+    src: ['sounds/abc2.mp3'],
     onplayerror: function(){
         alphabet.once('unlock', function(){
             console.log("audio unlocked");
@@ -38,7 +38,8 @@ var alphabet = new Howl({
         w: [10249, 200],
         x: [8524, 380],
         y: [8914, 400],
-        z: [9464, 300]
+        z: [9464, 300],
+        silence: [10864, 500]
     }
 });
 
@@ -61,11 +62,16 @@ function speech(blabla){
         const letra = blabla[i];
         if(letters.includes(letra)){
             Vocalize(letra);
+        }else if(letra === " "){
+            // silence.
+            console.log('silence');
+            Vocalize('silence');
         }else{
             Vocalize("e");
+            console.log(`Letter not found: ${letra}. 😱 `);
         }
     }
-    console.log("Animal says:  ${blabla}.")
+    console.log(`Animal says:  ${blabla}.`)
 }
 
 
