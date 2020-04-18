@@ -4,7 +4,8 @@
         <meta http-equiv="Content-Type" content="text/html">
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="theme-color" content="#66F4B9">
+        <meta name="theme-color" content="#388659">
+        <link rel="shortcut icon" href="favicon.ico">
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <script src="https://kit.fontawesome.com/5ebc5ec22d.js" crossorigin="anonymous"></script>
         <script src="js/howler.js"></script>
@@ -21,9 +22,13 @@
             <div class="card" id="card">
                 <section class="section-form">
                     <form class="animalizame-form" id="animalizame-form" action="#">
+                        <!-- <div class="form-description"><em><b>Isabelle Speech</b></em> it's a speech generator inspired in the Animal Crossing's speaking style. Just enter a word or sentence and press the button to hear the traduction.</div> -->
                         <div class="form-title" id="form-title">Escribe algo</div>
                         <input class="text-to-speech" id="text-to-speech" type="text" oninput="VocalizeInput(this)"/>
-                        <button class="animalizame-button" id="animalizame-button" onclick="animalizame(document.getElementById('text-to-speech').value)"> 😁 🔊 </button>
+                        <button class="animalizame-button" id="animalizame-button" onclick="animalizame(document.getElementById('text-to-speech').value)">
+                            <img src="images/audio.png" alt="Hear it!" height="28">
+                            <img src="images/music-note.png" alt="Hear it!" height="28">
+                        </button>
                     </form>
                 </section>
 
@@ -34,6 +39,7 @@
                         </a>
                         <span class="tooltiptext">¡Ve el código!</span>
                     </div>
+                    <!-- <div class="freepik">Icons made by <a target="noopener_noreferrer"  href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a> from <a target="noopener_noreferrer"  href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com</a></div> -->
                 </section>
             </div>
         </div>
