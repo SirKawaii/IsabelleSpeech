@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Comic+Neue|Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Roboto+Slab|Comic+Neue|Roboto&display=swap');
 
 html {
     height: 100%;
@@ -19,8 +19,13 @@ body{
     align-items: center;
 }
 header h1{
-    font-family: 'Comic Neue', cursive;
-    color: white;
+    font-family: 'Roboto Slab', serif;
+    color: #FFCC00;
+    background-color: #996600;
+}
+.logo{
+    height: 250px;
+    margin: 30px;
 }
 .card{
     background-color: rgba(0,215,130, .4);
@@ -114,7 +119,7 @@ header h1{
     padding: 5px;
     position: absolute;
     z-index: 1;
-    bottom: 64%;
+    bottom: 56%;
     opacity: 0;
     transition: opacity 0.5s;
 }
@@ -124,12 +129,20 @@ header h1{
 }
 
 @media screen and (max-width: 600px){
+    .logo{
+        height: 200px;
+        margin: 20px;
+    }
     .text-to-speech{
         width: 200px;
     }
 }
 
 @media screen and (max-width: 300px){
+    .logo{
+        height: 180px;
+        margin: 20px;
+    }
     .text-to-speech{
         width: 100px;
     }
