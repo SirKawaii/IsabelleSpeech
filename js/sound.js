@@ -1,16 +1,9 @@
 // define the fucking alphabet
-var letters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z,").split(',');
-var alphabet = new Howl({
-    src: ['sounds/abc2.mp3'],
-    onplayerror: function(){
-        alphabet.once('unlock', function(){
-            console.log("audio unlocked");
-        });
-    },
-    html5: 'true',
-    preload : 'true',
-    pool : 100,
-    html5PoolSize : 100,
+let pitch_value = 1.0;
+let letters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z,").split(',');
+let alphabet = new Howl({
+    src: ['sounds/abc3.mp3'],
+    volume: 1,
     sprite: {
         a: [0, 325],
         b: [404, 331],
@@ -43,14 +36,19 @@ var alphabet = new Howl({
     }
 });
 
+
+function UpdatePitch(slider){
+    console.log(slider.value)
+    pitch_value = slider.value;
+}
+
 function animalizame(text){
     // first we need to clean this text, people write a lot of shit.
-    text = text.trim();
-    console.log(text);
+    text = text.toLowerCase().trim();
     // then...
     // this speech to text speaks Español chileno y que wea?
     if(text.length === 0){
-        speech("niuna wea");
+        speech('niuna wea');
     }
     else{
         speech(text);
@@ -58,29 +56,26 @@ function animalizame(text){
 }
 
 function speech(blabla){
+
     for (let i = 0; i < blabla.length; i++) {
         const letra = blabla[i];
         if(letters.includes(letra)){
-            Vocalize(letra);
+            let current = alphabet.play(letra);
+            alphabet.rate(pitch_value, current);
+            setTimeout(() => {
+                //wait
+            }, alphabet.duration(current));
+
         }else if(letra === " "){
-            // silence.
-            console.log('silence');
-            Vocalize('silence');
+            alphabet.play('silence');
+            setTimeout(() => {
+                //wait
+            }, 500);
         }else{
-            Vocalize("e");
             console.log(`Letter not found: ${letra}. 😱 `);
         }
+
     }
-    console.log(`Animal says:  ${blabla}.`)
-}
-
-
-function Vocalize(letter_spoke){
-    // need work, hard work
-    setTimeout(() => {
-        alphabet.play(letter_spoke);
-    }, alphabet.duration(letter_spoke));
-    alphabet.stop(letter_spoke);
 }
 
 //  vocalize for each letter writen.
