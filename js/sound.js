@@ -1,44 +1,154 @@
 // define the fucking alphabet
 let pitch_value = 1.0;
+let audioSprite = new Audio('sounds/abc3.mp3');
 let letters = ("a,b,c,d,e,f,g,h,i,j,k,l,m,n,ñ,o,p,q,r,s,t,u,v,w,x,y,z,").split(',');
-let alphabet = new Howl({
-    src: ['sounds/abc3.mp3'],
-    volume: 1,
-    sprite: {
-        a: [0, 325],
-        b: [404, 331],
-        c: [784, 348],
-        d: [1241, 200],
-        e: [1593, 140],
-        f: [1896, 290],
-        g: [2262, 200],
-        h: [2600, 300],
-        i: [3011, 100],
-        j: [3269, 250],
-        k: [3596, 100],
-        l: [3826, 200],
-        m: [4175, 250],
-        n: [4558, 250],
-        ñ: [4945, 200],
-        o: [5342, 100],
-        p: [5624, 100],
-        q: [5934, 100],
-        r: [6210, 200],
-        s: [6649, 200],
-        t: [7067, 100],
-        u: [7276, 150],
-        v: [7576, 200],
-        w: [10249, 200],
-        x: [8524, 380],
-        y: [8914, 400],
-        z: [9464, 300],
-        silence: [10864, 500]
+let alphabet = {
+    a: {
+        start: 0,
+        length: 325
+    },
+    b: {
+        start: 404,
+        length: 331
+    },
+    c: {
+        start: 784,
+        length: 348
+    },
+    d: {
+        start: 1241,
+        length: 200
+    },
+    e: {
+        start: 1593,
+        length: 140
+    },
+    f: {
+        start: 1896,
+        length: 290
+    },
+    g: {
+        start: 2262,
+        length: 200
+    },
+    h: {
+        start: 2600,
+        length: 300
+    },
+    i: {
+        start: 3011,
+        length: 100
+    },
+    j: {
+        start: 3269,
+        length: 250
+    },
+    k: {
+        start: 3596,
+        length: 100
+    },
+    l: {
+        start: 3826,
+        length: 200
+    },
+    m: {
+        start: 4175,
+        length: 250
+    },
+    n: {
+        start: 4558,
+        length: 250
+    },
+    ñ: {
+        start: 4945,
+        length: 200
+    },
+    o: {
+        start: 5342,
+        length: 100
+    },
+    p: {
+        start: 5624,
+        length: 100
+    },
+    q: {
+        start: 5934,
+        length: 100
+    },
+    r: {
+        start: 6210,
+        length: 200
+    },
+    s: {
+        start: 6649,
+        length: 200
+    },
+    t: {
+        start: 7067,
+        length: 100
+    },
+    u: {
+        start: 7276,
+        length: 150
+    },
+    v: {
+        start: 7576,
+        length: 200
+    },
+    w: {
+        start: 10249,
+        length: 200
+    },
+    x: {
+        start: 8524,
+        length: 380
+    },
+    y: {
+        start: 8914,
+        length: 400
+    },
+    z: {
+        start: 9464,
+        length: 300
+    },
+    silence: {
+        start: 10864,
+        length: 500
     }
-});
+};
 
+function toSeconds(miliseconds){
+    let seconds = Math.floor(miliseconds / 1000);
+    if(seconds <= 0){
+        seconds += 1;
+    }
+    return seconds;
+}
+
+let currentSprite = {};
+
+
+
+let onTimeUpdate = function(){
+    if(this.currentTime >= toSeconds(currentSprite.start) + toSeconds(currentSprite.length)){
+        this.pause();
+    }
+};
+
+
+
+audioSprite.addEventListener('timeupdate', onTimeUpdate, false);
+
+var playSprite = function(id) {
+    if (alphabet[id] && alphabet[id].length) {
+        currentSprite = alphabet[id];
+        audioSprite.currentTime = toSeconds(currentSprite.start);
+        audioSprite.play();
+        console.log('play'  +  id);
+    }
+};
 
 function UpdatePitch(slider){
-    console.log(slider.value)
     pitch_value = slider.value;
 }
 
@@ -47,12 +157,15 @@ function animalizame(text){
     text = text.toLowerCase().trim();
     // then...
     // this speech to text speaks Español chileno y que wea?
-    if(text.length === 0){
-        speech('niuna wea');
-    }
-    else{
-        speech(text);
-    }
+    playSprite('g');
+
+    playSprite('z');
+    // if(text.length === 0){
+    //     speech('niuna wea');
+    // }
+    // else{
+    //     speech(text);
+    // }
 }
 
 function speech(blabla){
